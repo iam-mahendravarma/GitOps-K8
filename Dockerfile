@@ -19,10 +19,6 @@ COPY --from=base /app/node_modules ./node_modules
 # Copy application source
 COPY . .
 
-# Non-root user for security
-RUN addgroup -S nodegroup && adduser -S nodeuser -G nodegroup && chown -R nodeuser:nodegroup /app
-USER nodeuser
-
 EXPOSE 3000
 
 # Healthcheck hits the health endpoint
