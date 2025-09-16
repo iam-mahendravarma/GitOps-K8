@@ -1,0 +1,21 @@
+:root { color-scheme: light dark; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 2rem; }
+.container { max-width: 900px; margin: 0 auto; }
+h1, h2 { margin: 0 0 1rem; }
+form { background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+label { display: flex; flex-direction: column; font-size: .9rem; gap: .25rem; }
+input { padding: .5rem .6rem; border: 1px solid #ccc; border-radius: 6px; }
+button { padding: .6rem 1rem; border: 0; background: #2563eb; color: white; border-radius: 6px; cursor: pointer; margin-top: .5rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #e5e7eb; }
+td button { background: #ef4444; }
+
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+.header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; gap: 1rem; }
+.logo { height: 36px; aspect-ratio: auto; }
+.header nav { display: flex; gap: .75rem; }
+.header nav a { text-decoration: none; color: #2563eb; }
+
+

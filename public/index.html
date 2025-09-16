@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Data Entry</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="/logo.png" alt="Logo" class="logo" />
+      <h1>Server Credentials</h1>
+      <nav></nav>
+    </header>
+    <form id="credential-form">
+      <div class="grid">
+        <label>
+          Username
+          <input name="username" required />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" required />
+        </label>
+        <label>
+          Server Name
+          <input name="serverName" required />
+        </label>
+        <label>
+          Server IP
+          <input name="serverIp" required placeholder="e.g. 192.168.1.10" />
+        </label>
+        <label>
+          Server URL
+          <input name="serverUrl" required placeholder="https://example.com" />
+        </label>
+      </div>
+      <input type="hidden" name="_id" />
+      <button type="submit" id="submit-btn">Save</button>
+      <button type="button" id="cancel-edit" style="display:none">Cancel Edit</button>
+    </form>
+
+    <h2>Saved Records</h2>
+    <table id="records">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Server Name</th>
+          <th>Server IP</th>
+          <th>Server URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
+
+
