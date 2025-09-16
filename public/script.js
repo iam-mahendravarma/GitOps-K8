@@ -1,5 +1,5 @@
 async function fetchRecords() {
-  const res = await fetch('/api/credentials');
+  const res = await fetch('api/credentials');
   const data = await res.json();
   const tbody = document.querySelector('#records tbody');
   tbody.innerHTML = '';
@@ -45,7 +45,7 @@ document.getElementById('credential-form').addEventListener('submit', async (e) 
   };
   const id = form._id && form._id.value ? form._id.value : '';
   const isEdit = Boolean(id);
-  const res = await fetch(isEdit ? ('/api/credentials/' + id) : '/api/credentials', {
+  const res = await fetch(isEdit ? ('api/credentials/' + id) : 'api/credentials', {
     method: isEdit ? 'PUT' : 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -65,7 +65,7 @@ document.getElementById('credential-form').addEventListener('submit', async (e) 
 document.querySelector('#records tbody').addEventListener('click', async (e) => {
   if (e.target.matches('button.delete')) {
     const id = e.target.getAttribute('data-id');
-    const res = await fetch('/api/credentials/' + id, { method: 'DELETE' });
+    const res = await fetch('api/credentials/' + id, { method: 'DELETE' });
     if (!res.ok) {
       alert('Delete failed');
       return;
