@@ -3,6 +3,7 @@ name: CI - Build and Push Docker Image
 on:
   push:
     branches: [ main, master ]
+    tags: [ 'v*.*.*' ]   # <-- trigger also on version tags like v1.0.0
     paths-ignore:
       - '**/*.md'
   workflow_dispatch:
@@ -32,8 +33,11 @@ jobs:
         with:
           images: ${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=sha
+            type=ref,event=branch     # branch tags (main, dev, etc.)
+            type=sha                  # commit SHA tags
+            type=semver,pattern={{version}}   # semantic version tags (1.0.0)
+            type=semver,pattern={{major}}     # major tag (1)
+            type=semver,pattern={{major}}.{{minor}} # major.minor (1.2)
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -44,5 +48,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-
